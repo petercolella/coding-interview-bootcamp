@@ -23,11 +23,21 @@
 //   return strArr.join('');
 // }
 
+// function reverse(str) {
+//   return str
+//     .split('')
+//     .reverse()
+//     .join('');
+// }
+
 function reverse(str) {
-  return str
-    .split('')
-    .reverse()
-    .join('');
+  let reversedStr = '';
+
+  for (let character of str) {
+    reversedStr = character + reversedStr;
+  }
+
+  return reversedStr;
 }
 
 const word = 'apple';
