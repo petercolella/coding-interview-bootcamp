@@ -6,15 +6,28 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
+// function reverse(str) {
+//   const reversedStr = [];
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     reversedStr.push(str[i]);
+//   }
+//   console.log(reversedStr);
+//   const result = reversedStr.join('');
+//   console.log(result);
+//   return result;
+// }
+
+// function reverse(str) {
+//   const strArr = str.split('');
+//   strArr.reverse();
+//   return strArr.join('');
+// }
+
 function reverse(str) {
-  const reversedStr = [];
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversedStr.push(str[i]);
-  }
-  console.log(reversedStr);
-  const result = reversedStr.join('');
-  console.log(result);
-  return result;
+  return str
+    .split('')
+    .reverse()
+    .join('');
 }
 
 const word = 'apple';
