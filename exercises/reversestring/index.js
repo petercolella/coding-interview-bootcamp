@@ -30,19 +30,19 @@
 //     .join('');
 // }
 
-// function reverse(str) {
-//   let reversedStr = '';
-
-//   for (let character of str) {
-//     reversedStr = character + reversedStr;
-//   }
-
-//   return reversedStr;
-// }
-
 function reverse(str) {
-  return str.split('').reduce((rev, char) => char + rev, '');
+  let reversedStr = '';
+
+  for (let character of str) {
+    reversedStr = character + reversedStr;
+  }
+
+  return reversedStr;
 }
+
+// function reverse(str) {
+//   return str.split('').reduce((rev, char) => char + rev, '');
+// }
 
 const word = 'apple';
 
