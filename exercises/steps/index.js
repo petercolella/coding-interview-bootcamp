@@ -32,20 +32,40 @@
 //   }
 // }
 
-function steps(n) {
-  for (let row = 0; row < n; row++) {
-    let stair = '';
+// function steps(n) {
+//   for (let row = 0; row < n; row++) {
+//     let stair = '';
 
-    for (let column = 0; column < n; column++) {
-      if (column <= row) {
-        stair += '#';
-      } else {
-        stair += ' ';
-      }
-    }
+//     for (let column = 0; column < n; column++) {
+//       if (column <= row) {
+//         stair += '#';
+//       } else {
+//         stair += ' ';
+//       }
+//     }
 
-    console.log(stair);
+//     console.log(stair);
+//   }
+// }
+
+function steps(n, pound = 1) {
+  if (n + 1 === pound) {
+    return;
   }
+
+  result = '';
+
+  for (let i = 0; i < n; i++) {
+    if (i < pound) {
+      result += '#';
+    } else {
+      result += ' ';
+    }
+  }
+
+  console.log(result);
+
+  steps(n, pound + 1);
 }
 
 module.exports = steps;
