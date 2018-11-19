@@ -48,24 +48,38 @@
 //   }
 // }
 
-function steps(n, pound = 1) {
-  if (n + 1 === pound) {
+// function steps(n, pound = 1) {
+//   if (n + 1 === pound) {
+//     return;
+//   }
+
+//   result = '';
+
+//   for (let i = 0; i < n; i++) {
+//     if (i < pound) {
+//       result += '#';
+//     } else {
+//       result += ' ';
+//     }
+//   }
+
+//   console.log(result);
+
+//   steps(n, pound + 1);
+// }
+
+function steps(n, row = 0, stair = '') {
+  if (n === row) {
     return;
   }
 
-  result = '';
-
-  for (let i = 0; i < n; i++) {
-    if (i < pound) {
-      result += '#';
-    } else {
-      result += ' ';
-    }
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
   }
 
-  console.log(result);
-
-  steps(n, pound + 1);
+  const add = stair.length <= row ? '#' : ' ';
+  steps(n, row, stair + add);
 }
 
 module.exports = steps;
