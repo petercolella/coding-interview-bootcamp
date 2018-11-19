@@ -17,18 +17,34 @@
 //       '### '
 //       '####'
 
+// function steps(n) {
+//   for (let i = 1; i <= n; i++) {
+//     let spaceIteration = n - i;
+//     let poundArr = [];
+//     let spaceArr = [];
+//     for (let j = 0; j < i; j++) {
+//       poundArr.push('#');
+//     }
+//     for (let k = 0; k < spaceIteration; k++) {
+//       spaceArr.push(' ');
+//     }
+//     console.log(`${poundArr.join('')}${spaceArr.join('')}`);
+//   }
+// }
+
 function steps(n) {
-  for (let i = 1; i <= n; i++) {
-    let spaceIteration = n - i;
-    let poundArr = [];
-    let spaceArr = [];
-    for (let j = 0; j < i; j++) {
-      poundArr.push('#');
+  for (let row = 0; row < n; row++) {
+    let stair = '';
+
+    for (let column = 0; column < n; column++) {
+      if (column <= row) {
+        stair += '#';
+      } else {
+        stair += ' ';
+      }
     }
-    for (let k = 0; k < spaceIteration; k++) {
-      spaceArr.push(' ');
-    }
-    console.log(`${poundArr.join('')}${spaceArr.join('')}`);
+
+    console.log(stair);
   }
 }
 
