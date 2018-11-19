@@ -17,6 +17,19 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  for (let i = 1; i <= n; i++) {
+    let spaceIteration = n - i;
+    let poundArr = [];
+    let spaceArr = [];
+    for (let j = 0; j < i; j++) {
+      poundArr.push('#');
+    }
+    for (let k = 0; k < spaceIteration; k++) {
+      spaceArr.push(' ');
+    }
+    console.log(`${poundArr.join('')}${spaceArr.join('')}`);
+  }
+}
 
 module.exports = steps;
