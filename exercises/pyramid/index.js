@@ -33,20 +33,36 @@
 //   }
 // }
 
+// function pyramid(n) {
+//   let colNum = 2 * n - 1;
+//   let poundNum = 1;
+//   for (let i = 0; i < n; i++) {
+//     let spaceNum = (colNum - poundNum) / 2;
+//     let row = '';
+//     for (let colChar = 0; colChar < colNum; colChar++) {
+//       if (colChar < spaceNum) {
+//         row += ' ';
+//       } else if (colChar >= spaceNum && colChar < poundNum + spaceNum) {
+//         row += '#';
+//       } else {
+//         row += ' ';
+//       }
+//     }
+//     poundNum += 2;
+//     console.log(row);
+//   }
+// }
+
 function pyramid(n) {
-  let colNum = 2 * n - 1;
+  const colNum = 2 * n - 1;
   let poundNum = 1;
   for (let i = 0; i < n; i++) {
     let spaceNum = (colNum - poundNum) / 2;
     let row = '';
     for (let colChar = 0; colChar < colNum; colChar++) {
-      if (colChar < spaceNum) {
-        row += ' ';
-      } else if (colChar >= spaceNum && colChar < poundNum + spaceNum) {
-        row += '#';
-      } else {
-        row += ' ';
-      }
+      colChar < spaceNum || colChar >= poundNum + spaceNum
+        ? (row += ' ')
+        : (row += '#');
     }
     poundNum += 2;
     console.log(row);
