@@ -53,19 +53,37 @@
 //   }
 // }
 
+// function pyramid(n) {
+//   const colNum = 2 * n - 1;
+//   let poundNum = 1;
+//   for (let i = 0; i < n; i++) {
+//     let spaceNum = (colNum - poundNum) / 2;
+//     let row = '';
+//     for (let colChar = 0; colChar < colNum; colChar++) {
+//       colChar < spaceNum || colChar >= poundNum + spaceNum
+//         ? (row += ' ')
+//         : (row += '#');
+//     }
+//     poundNum += 2;
+//     console.log(row);
+//   }
+// }
+
 function pyramid(n) {
-  const colNum = 2 * n - 1;
-  let poundNum = 1;
-  for (let i = 0; i < n; i++) {
-    let spaceNum = (colNum - poundNum) / 2;
-    let row = '';
-    for (let colChar = 0; colChar < colNum; colChar++) {
-      colChar < spaceNum || colChar >= poundNum + spaceNum
-        ? (row += ' ')
-        : (row += '#');
+  const midpoint = Math.floor((2 * n - 1) / 2);
+
+  for (let row = 0; row < n; row++) {
+    let level = '';
+
+    for (let column = 0; column < 2 * n - 1; column++) {
+      if (midpoint - row <= column && midpoint + row >= column) {
+        level += '#';
+      } else {
+        level += ' ';
+      }
     }
-    poundNum += 2;
-    console.log(row);
+
+    console.log(level);
   }
 }
 
