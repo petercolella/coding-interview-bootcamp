@@ -14,6 +14,23 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  colNum = 2 * n - 1;
+  poundNum = 1;
+  for (let i = 0; i < n; i++) {
+    let row = '';
+    for (let j = 0; j < (colNum - poundNum) / 2; j++) {
+      row += ' ';
+    }
+    for (let k = 0; k < poundNum; k++) {
+      row += '#';
+    }
+    for (let l = 0; l < (colNum - poundNum) / 2; l++) {
+      row += ' ';
+    }
+    console.log(row);
+    poundNum += 2;
+  }
+}
 
 module.exports = pyramid;
