@@ -14,22 +14,42 @@
 //       ' ### '
 //       '#####'
 
+// function pyramid(n) {
+//   colNum = 2 * n - 1;
+//   poundNum = 1;
+//   for (let i = 0; i < n; i++) {
+//     let row = '';
+//     for (let j = 0; j < (colNum - poundNum) / 2; j++) {
+//       row += ' ';
+//     }
+//     for (let k = 0; k < poundNum; k++) {
+//       row += '#';
+//     }
+//     for (let l = 0; l < (colNum - poundNum) / 2; l++) {
+//       row += ' ';
+//     }
+//     console.log(row);
+//     poundNum += 2;
+//   }
+// }
+
 function pyramid(n) {
-  colNum = 2 * n - 1;
-  poundNum = 1;
+  let colNum = 2 * n - 1;
+  let poundNum = 1;
   for (let i = 0; i < n; i++) {
+    let spaceNum = (colNum - poundNum) / 2;
     let row = '';
-    for (let j = 0; j < (colNum - poundNum) / 2; j++) {
-      row += ' ';
+    for (let colChar = 0; colChar < colNum; colChar++) {
+      if (colChar < spaceNum) {
+        row += ' ';
+      } else if (colChar >= spaceNum && colChar < poundNum + spaceNum) {
+        row += '#';
+      } else {
+        row += ' ';
+      }
     }
-    for (let k = 0; k < poundNum; k++) {
-      row += '#';
-    }
-    for (let l = 0; l < (colNum - poundNum) / 2; l++) {
-      row += ' ';
-    }
-    console.log(row);
     poundNum += 2;
+    console.log(row);
   }
 }
 
