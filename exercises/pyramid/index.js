@@ -87,21 +87,41 @@
 //   }
 // }
 
+// function pyramid(n, row = 0, level = '') {
+//   if (n === row) {
+//     return;
+//   }
+
+//   if (2 * n - 1 === level.length) {
+//     console.log(level);
+//     return pyramid(n, row + 1);
+//   }
+
+//   const midpoint = Math.floor((2 * n - 1) / 2);
+//   const add =
+//     midpoint - row <= level.length && midpoint + row >= level.length
+//       ? '#'
+//       : ' ';
+//   pyramid(n, row, level + add);
+// }
+
 function pyramid(n, row = 0, level = '') {
-  if (n === row) {
+  if (row === n) {
     return;
   }
 
-  if (2 * n - 1 === level.length) {
+  if (level.length === 2 * n - 1) {
     console.log(level);
     return pyramid(n, row + 1);
   }
 
   const midpoint = Math.floor((2 * n - 1) / 2);
-  const add =
-    midpoint - row <= level.length && midpoint + row >= level.length
-      ? '#'
-      : ' ';
+  let add;
+  if (midpoint - row <= level.length && midpoint + row >= level.length) {
+    add = '#';
+  } else {
+    add = ' ';
+  }
   pyramid(n, row, level + add);
 }
 
