@@ -29,17 +29,25 @@
 //   return result[n];
 // }
 
-function fib(n, result = [0, 1], count = 2) {
-  if (result.length < n + 1) {
-    const a = result[count - 1];
-    const b = result[count - 2];
-    result.push(a + b);
-    count++;
+// function fib(n, result = [0, 1], count = 2) {
+//   if (result.length < n + 1) {
+//     const a = result[count - 1];
+//     const b = result[count - 2];
+//     result.push(a + b);
+//     count++;
 
-    return fib(n, result, count);
-  } else {
-    return result[n];
+//     return fib(n, result, count);
+//   } else {
+//     return result[n];
+//   }
+// }
+
+function fib(n) {
+  if (n < 2) {
+    return n;
   }
+
+  return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
