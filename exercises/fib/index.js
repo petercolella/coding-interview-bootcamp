@@ -8,6 +8,13 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+    let sumArr = [0, 1];
+    for (i = 2; i <= n; i++) {
+        sumArr.push(sumArr[i - 2] + sumArr[i - 1]);
+    }
+
+    return sumArr[n];
+}
 
 module.exports = fib;
