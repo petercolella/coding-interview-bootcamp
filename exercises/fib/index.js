@@ -17,16 +17,29 @@
 //     return sumArr[n];
 // }
 
-function fib(n) {
-  const result = [0, 1];
+// function fib(n) {
+//   const result = [0, 1];
 
-  for (let i = 2; i <= n; i++) {
-    const a = result[i - 1];
-    const b = result[i - 2];
+//   for (let i = 2; i <= n; i++) {
+//     const a = result[i - 1];
+//     const b = result[i - 2];
+//     result.push(a + b);
+//   }
+
+//   return result[n];
+// }
+
+function fib(n, result = [0, 1], count = 2) {
+  if (result.length < n + 1) {
+    const a = result[count - 1];
+    const b = result[count - 2];
     result.push(a + b);
-  }
+    count++;
 
-  return result[n];
+    return fib(n, result, count);
+  } else {
+    return result[n];
+  }
 }
 
 module.exports = fib;
