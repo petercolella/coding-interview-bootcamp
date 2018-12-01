@@ -10,21 +10,39 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
+// class Stack {
+//   constructor() {
+//     this.data = [];
+//   }
+
+//   push(record) {
+//     this.data.unshift(record);
+//   }
+
+//   pop() {
+//     return this.data.shift();
+//   }
+
+//   peek() {
+//     return this.data[0];
+//   }
+// }
+
 class Stack {
   constructor() {
     this.data = [];
   }
 
   push(record) {
-    this.data.unshift(record);
+    this.data.push(record);
   }
 
   pop() {
-    return this.data.shift();
+    return this.data.pop();
   }
 
   peek() {
-    return this.data[0];
+    return this.data[this.data.length - 1];
   }
 }
 
