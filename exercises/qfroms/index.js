@@ -75,4 +75,12 @@ class Queue {
   }
 }
 
+const q = new Queue();
+
+q.add(1);
+q.add(2);
+q.add(3);
+
+console.log(q);
+
 module.exports = Queue;
