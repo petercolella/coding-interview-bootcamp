@@ -40,10 +40,17 @@ class Queue {
   constructor() {
     this.first = new Stack();
     this.second = new Stack();
+    this.third = new Stack();
   }
 
   add(record) {
     this.first.push(record);
+    while (this.first.peek()) {
+      this.second.push(this.first.pop());
+    }
+    // while (this.second.peek()) {
+    this.third.push(this.second.pop());
+    // }
   }
 
   remove() {
