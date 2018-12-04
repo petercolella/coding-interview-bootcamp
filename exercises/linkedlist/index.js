@@ -18,21 +18,33 @@ class LinkedList {
     this.head = new Node(data, this.head);
   }
 
+  //   size() {
+  //     const list = this;
+  //     let count = 0;
+  //     for (let node in list) {
+  //       console.log(node);
+  //       console.log(list);
+  //       console.log(list[node]);
+  //       console.log(count);
+  //       if (list[node]) {
+  //         count++;
+  //         list[node].size();
+  //       } else {
+  //         return count;
+  //       }
+  //     }
+  //   }
+
   size() {
-    const list = this;
-    let count = 0;
-    for (let node in list) {
-      console.log(node);
-      console.log(list);
-      console.log(list[node]);
-      console.log(count);
-      if (list[node]) {
-        count++;
-        list[node].size();
-      } else {
-        return count;
-      }
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      counter++;
+      node = node.next;
     }
+
+    return counter;
   }
 }
 
