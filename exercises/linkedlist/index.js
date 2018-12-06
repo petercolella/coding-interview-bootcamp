@@ -52,13 +52,17 @@ class LinkedList {
   }
 
   getLast() {
-    let node = this.head;
-
-    while (node.next) {
-      node = node.next;
+    if (!this.head) {
+      return null;
     }
 
-    return node;
+    let node = this.head;
+    while (node) {
+      if (!node.next) {
+        return node;
+      }
+      node = node.next;
+    }
   }
 }
 
