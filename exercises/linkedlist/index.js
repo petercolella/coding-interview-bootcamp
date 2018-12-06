@@ -82,20 +82,28 @@ class LinkedList {
       return;
     }
 
-    let previous = this.head;
-
-    if (!previous.next) {
-      return (this.head = null);
+    if (!this.head.next) {
+      this.head = null;
+      return;
     }
 
-    let node = previous.next;
+    let previous = this.head;
+    let node = this.head.next;
+
+    // if (!previous.next) {
+    //   return (this.head = null);
+    // }
+
+    // let node = previous.next;
 
     while (node.next) {
+      previous = node;
       node = node.next;
-      previous = previous.next;
+      //   previous = previous.next;
     }
 
-    return (previous.next = null);
+    // return (previous.next = null);
+    previous.next = null;
   }
 }
 
