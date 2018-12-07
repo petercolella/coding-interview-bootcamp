@@ -107,13 +107,21 @@ class LinkedList {
   }
 
   insertLast(data) {
-    let node = new Node(data);
+    const last = this.getLast();
 
-    if (!this.head) {
-      this.head = node;
+    if (last) {
+      last.next = new Node(data);
+    } else {
+      this.head = new Node(data);
     }
 
-    this.getLast().next = node;
+    // let node = new Node(data);
+
+    // if (!this.head) {
+    //   this.head = node;
+    // }
+
+    // this.getLast().next = node;
   }
 }
 
