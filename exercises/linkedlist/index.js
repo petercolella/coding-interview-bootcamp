@@ -123,6 +123,23 @@ class LinkedList {
 
     // this.getLast().next = node;
   }
+
+  getAt(index) {
+    let node = this.head;
+    let counter = 0;
+
+    if (!node) {
+      return null;
+    }
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+      counter++;
+      node = node.next;
+    }
+  }
 }
 
 module.exports = { Node, LinkedList };
