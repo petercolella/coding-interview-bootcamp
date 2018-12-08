@@ -150,16 +150,31 @@ class LinkedList {
   removeAt(index) {
     // let counter = 1;
     // let previous = this.head;
-    let previous = this.getAt(index - 1);
-    let node = this.getAt(index);
+    // let previous = this.getAt(index - 1);
+    // let node = this.getAt(index);
 
-    if (previous && node) {
-      previous.next = node.next;
-    } else if (!previous && node) {
-      this.head = node.next;
-    } else {
+    // if (previous && node) {
+    //   previous.next = node.next;
+    // } else if (!previous && node) {
+    //   this.head = node.next;
+    // } else {
+    //   return;
+    // }
+
+    if (!this.head) {
       return;
     }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    const previous = this.getAt(index - 1);
+    if (!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
 
     // if (index === 0) {
     //   this.head = previous.next;
