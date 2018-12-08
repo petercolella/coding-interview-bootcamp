@@ -148,29 +148,35 @@ class LinkedList {
   }
 
   removeAt(index) {
-    let counter = 1;
-    let previous = this.head;
+    // let counter = 1;
+    // let previous = this.head;
+    let previous = this.getAt(index - 1);
+    let node = this.getAt(index);
 
-    if (!previous) {
+    if (previous && node) {
+      previous.next = node.next;
+    } else if (!previous && node) {
+      this.head = node.next;
+    } else {
       return;
     }
 
-    if (index === 0) {
-      this.head = previous.next;
-    }
+    // if (index === 0) {
+    //   this.head = previous.next;
+    // }
 
-    let node = previous.next;
+    // let node = previous.next;
 
-    while (node) {
-      if (counter === index) {
-        previous.next = node.next;
-      }
+    // while (node) {
+    //   if (counter === index) {
+    //     previous.next = node.next;
+    //   }
 
-      counter++;
-      node = node.next;
-    }
+    //   counter++;
+    //   node = node.next;
+    // }
 
-    return;
+    // return;
   }
 }
 
