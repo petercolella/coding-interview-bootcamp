@@ -194,27 +194,38 @@ class LinkedList {
     // return;
   }
 
+  //   insertAt(data, index) {
+  //     if (index === 0) {
+  //       if (!this.head) {
+  //         this.head = new Node(data);
+  //         return;
+  //       } else if (this.head) {
+  //         const node = new Node(data);
+  //         node.next = this.head;
+  //         this.head = node;
+  //         return;
+  //       }
+  //     }
+
+  //     if (this.size() <= index) {
+  //       this.getLast().next = new Node(data);
+  //       return;
+  //     }
+
+  //     const node = new Node(data);
+  //     node.next = this.getAt(index);
+  //     this.getAt(index - 1).next = node;
+  //   }
+
   insertAt(data, index) {
-    if (index === 0) {
-      if (!this.head) {
-        this.head = new Node(data);
-        return;
-      } else if (this.head) {
-        const node = new Node(data);
-        node.next = this.head;
-        this.head = node;
-        return;
-      }
-    }
-
-    if (this.size() <= index) {
-      this.getLast().next = new Node(data);
-      return;
-    }
-
     const node = new Node(data);
-    node.next = this.getAt(index);
-    this.getAt(index - 1).next = node;
+
+    if (!this.getAt(index)) {
+      index === 0 ? (this.head = node) : (this.getLast().next = node);
+    } else {
+      node.next = this.getAt(index);
+      index === 0 ? (this.head = node) : (this.getAt(index - 1).next = node);
+    }
   }
 }
 
