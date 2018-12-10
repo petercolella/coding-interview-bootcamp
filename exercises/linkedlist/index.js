@@ -229,16 +229,30 @@ class LinkedList {
   //   }
 
   insertAt(data, index) {
-    const node = new Node(data);
-    node.next = this.getAt(index);
+    // const node = new Node(data);
+    // node.next = this.getAt(index);
+
+    // if (index === 0) {
+    //   this.head = node;
+    // } else if (!node.next) {
+    //   this.getLast().next = node;
+    // } else {
+    //   this.getAt(index - 1).next = node;
+    // }
+
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
 
     if (index === 0) {
-      this.head = node;
-    } else if (!node.next) {
-      this.getLast().next = node;
-    } else {
-      this.getAt(index - 1).next = node;
+      this.head = new Node(data, this.head);
+      return;
     }
+
+    const previous = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, previous.next);
+    previous.next = node;
   }
 }
 
