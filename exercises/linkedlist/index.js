@@ -217,14 +217,27 @@ class LinkedList {
   //     this.getAt(index - 1).next = node;
   //   }
 
+  //   insertAt(data, index) {
+  //     const node = new Node(data);
+
+  //     if (!this.getAt(index)) {
+  //       index === 0 ? (this.head = node) : (this.getLast().next = node);
+  //     } else {
+  //       node.next = this.getAt(index);
+  //       index === 0 ? (this.head = node) : (this.getAt(index - 1).next = node);
+  //     }
+  //   }
+
   insertAt(data, index) {
     const node = new Node(data);
+    node.next = this.getAt(index);
 
-    if (!this.getAt(index)) {
-      index === 0 ? (this.head = node) : (this.getLast().next = node);
+    if (index === 0) {
+      this.head = node;
+    } else if (!node.next) {
+      this.getLast().next = node;
     } else {
-      node.next = this.getAt(index);
-      index === 0 ? (this.head = node) : (this.getAt(index - 1).next = node);
+      this.getAt(index - 1).next = node;
     }
   }
 }
