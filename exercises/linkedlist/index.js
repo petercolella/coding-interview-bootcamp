@@ -240,10 +240,10 @@ class LinkedList {
     //   this.getAt(index - 1).next = node;
     // }
 
-    if (!this.head) {
-      this.head = new Node(data);
-      return;
-    }
+    // if (!this.head) {
+    //   this.head = new Node(data);
+    //   return;
+    // }
 
     if (index === 0) {
       this.head = new Node(data, this.head);
