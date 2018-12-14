@@ -37,11 +37,12 @@ class Tree {
   }
 
   traverseBF(fn) {
-    fn(this.root);
-    let n = 0;
-    while (this.root.children[n]) {
-      fn(this.root.children[n]);
-      n++;
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+
+      arr.push(...node.children);
+      fn(node);
     }
   }
 
