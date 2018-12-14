@@ -20,8 +20,14 @@ class Node {
     this.children.push(new Node(data));
   }
 
+  //   remove(data) {
+  //     this.children.pop(this.children[data]);
+  //   }
+
   remove(data) {
-    this.children.pop(this.children[data]);
+    this.children = this.children.filter(node => {
+      return node.data !== data;
+    });
   }
 }
 
