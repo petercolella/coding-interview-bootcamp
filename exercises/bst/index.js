@@ -18,22 +18,34 @@ class Node {
     this.right = null;
   }
 
+  //   insert(data) {
+  //     let node = this;
+  //     if (node.data > data) {
+  //       if (node.left === null) {
+  //         node.left = new Node(data);
+  //       } else {
+  //         node = node.right;
+  //         node.insert(data);
+  //       }
+  //     } else {
+  //       if (node.right === null) {
+  //         node.right = new Node(data);
+  //       } else {
+  //         node = node.right;
+  //         node.insert(data);
+  //       }
+  //     }
+  //   }
+
   insert(data) {
-    let node = this;
-    if (node.data > data) {
-      if (node.left === null) {
-        node.left = new Node(data);
-      } else {
-        node = node.right;
-        node.insert(data);
-      }
-    } else {
-      if (node.right === null) {
-        node.right = new Node(data);
-      } else {
-        node = node.right;
-        node.insert(data);
-      }
+    if (data < this.data && this.left) {
+      this.left.insert(data);
+    } else if (data < this.data) {
+      this.left = new Node(data);
+    } else if (data > this.data && this.right) {
+      this.right.insert(data);
+    } else if (data > this.data) {
+      this.right = new Node(data);
     }
   }
 }
