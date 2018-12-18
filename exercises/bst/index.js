@@ -49,28 +49,42 @@ class Node {
     }
   }
 
+  //   contains(data) {
+  //     // console.log(this);
+  //     if (data < this.data && this.left) {
+  //       if (data === this.left.data) {
+  //         return this.left;
+  //       } else {
+  //         this.left.contains(data);
+  //       }
+  //     } else if (data > this.data && this.right) {
+  //       console.log(this);
+  //       console.log(this.right.data);
+  //       console.log(data);
+  //       console.log(this.right);
+  //       if (data === this.right.data) {
+  //         return this.right;
+  //         console.log('oops');
+  //       } else {
+  //         this.right.contains(data);
+  //       }
+  //     } else {
+  //       return null;
+  //     }
+  //   }
+
   contains(data) {
-    // console.log(this);
-    if (data < this.data && this.left) {
-      if (data === this.left.data) {
-        return this.left;
-      } else {
-        this.left.contains(data);
-      }
-    } else if (data > this.data && this.right) {
-      console.log(this);
-      console.log(this.right.data);
-      console.log(data);
-      console.log(this.right);
-      if (data === this.right.data) {
-        return this.right;
-        console.log('oops');
-      } else {
-        this.right.contains(data);
-      }
-    } else {
-      return null;
+    if (this.data === data) {
+      return this;
     }
+
+    if (this.data < data && this.right) {
+      return this.right.contains(data);
+    } else if (this.data > data && this.left) {
+      return this.left.contains(data);
+    }
+
+    return null;
   }
 }
 
