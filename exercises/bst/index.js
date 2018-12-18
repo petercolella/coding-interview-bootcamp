@@ -48,6 +48,43 @@ class Node {
       this.right = new Node(data);
     }
   }
+
+  contains(data) {
+    // console.log(this);
+    if (data < this.data && this.left) {
+      if (data === this.left.data) {
+        return this.left;
+      } else {
+        this.left.contains(data);
+      }
+    } else if (data > this.data && this.right) {
+      console.log(this);
+      console.log(this.right.data);
+      console.log(data);
+      console.log(this.right);
+      if (data === this.right.data) {
+        return this.right;
+        console.log('oops');
+      } else {
+        this.right.contains(data);
+      }
+    } else {
+      return null;
+    }
+  }
 }
+
+const node = new Node(10);
+node.insert(5);
+node.insert(15);
+node.insert(20);
+node.insert(0);
+node.insert(-5);
+node.insert(3);
+
+console.log('node: ', node);
+console.log('Insert function: ', node.insert());
+console.log('Contains function: ', node.contains());
+console.log(node.contains(3));
 
 module.exports = Node;
