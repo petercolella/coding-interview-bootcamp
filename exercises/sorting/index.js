@@ -15,18 +15,38 @@ function bubbleSort(arr) {
   return arr;
 }
 
+// function selectionSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     const indexOfMin = i;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[j] < arr[i]) {
+//         const indexOfNewMin = j;
+//         if (indexOfMin !== indexOfNewMin) {
+//           const newMinValue = arr[j];
+//           arr[j] = arr[i];
+//           arr[i] = newMinValue;
+//         }
+//       }
+//     }
+//   }
+
+//   return arr;
+// }
+
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
-    const indexOfMin = i;
+    let indexOfMin = i;
+
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[i]) {
-        const indexOfNewMin = j;
-        if (indexOfMin !== indexOfNewMin) {
-          const newMinValue = arr[j];
-          arr[j] = arr[i];
-          arr[i] = newMinValue;
-        }
+      if (arr[j] < arr[indexOfMin]) {
+        indexOfMin = j;
       }
+    }
+
+    if (indexOfMin !== i) {
+      let lesser = arr[indexOfMin];
+      arr[indexOfMin] = arr[i];
+      arr[i] = lesser;
     }
   }
 
