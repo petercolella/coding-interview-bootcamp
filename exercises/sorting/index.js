@@ -53,7 +53,25 @@ function selectionSort(arr) {
   return arr;
 }
 
-function mergeSort(arr) {}
+function mergeSort(arr) {
+  const arr1 = [];
+  const arr2 = [];
+
+  for (let i = 0; i <= Math.floor(arr.length / 2); i++) {
+    arr1.push(arr[i]);
+  }
+
+  for (let i = arr.length - 1; i > Math.floor(arr.length / 2); i--) {
+    arr2.push(arr[i]);
+  }
+
+  if (arr1.length === 1 || arr2.length === 1) {
+    return merge(arr1, arr2);
+  } else {
+    mergeSort(arr1);
+    mergeSort(arr2);
+  }
+}
 
 // function merge(left, right) {
 //   const results = [];
