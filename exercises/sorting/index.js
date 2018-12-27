@@ -55,10 +55,32 @@ function selectionSort(arr) {
 
 function mergeSort(arr) {}
 
+// function merge(left, right) {
+//   const results = [];
+
+//   while (left.length > 0 && right.length > 0) {
+//     if (left[0] < right[0]) {
+//       results.push(left.shift());
+//     } else {
+//       results.push(right.shift());
+//     }
+//   }
+
+//   for (let el of left) {
+//     results.push(el);
+//   }
+
+//   for (let el of right) {
+//     results.push(el);
+//   }
+
+//   return results;
+// }
+
 function merge(left, right) {
   const results = [];
 
-  while (left.length > 0 && right.length > 0) {
+  while (left.length && right.length) {
     if (left[0] < right[0]) {
       results.push(left.shift());
     } else {
@@ -66,15 +88,7 @@ function merge(left, right) {
     }
   }
 
-  for (let el of left) {
-    results.push(el);
-  }
-
-  for (let el of right) {
-    results.push(el);
-  }
-
-  return results;
+  return [...results, ...left, ...right];
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
