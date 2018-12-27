@@ -81,6 +81,7 @@ function mergeSort(arr) {
   const center = Math.floor(arr.length / 2);
   const left = arr.slice(0, center);
   const right = arr.slice(center);
+  console.log('mergeSort left: ', left, 'mergeSort right: ', right);
 
   return merge(mergeSort(left), mergeSort(right));
 }
@@ -111,6 +112,7 @@ function merge(left, right) {
   const results = [];
 
   while (left.length && right.length) {
+    console.log('merge left: ', left, 'merge right: ', right);
     if (left[0] < right[0]) {
       results.push(left.shift());
     } else {
@@ -120,5 +122,9 @@ function merge(left, right) {
 
   return [...results, ...left, ...right];
 }
+
+const test = [100, -40, 500, -124, 0, 21, 7];
+
+console.log(mergeSort(test));
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
