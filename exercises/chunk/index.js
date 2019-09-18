@@ -16,22 +16,32 @@
 //   return result;
 // }
 
-function chunk(array, size) {
-  const chunked = [];
+// function chunk(array, size) {
+//   const chunked = [];
 
-  for (let element of array) {
-    // declare a variable for the last array in the new chunked array
-    const last = chunked[chunked.length - 1];
-    // if chunked is an empty array (last doesn't exist) or the length of last has reached the appropriate size
-    if (!last || last.length === size) {
-      // a new array of the element is pushed into the chunked array
-      chunked.push([element]);
-    } else {
-      //or the element will be pushed into the last array
-      last.push(element);
-    }
-  }
-  return chunked;
+//   for (let element of array) {
+//     // declare a variable for the last array in the new chunked array
+//     const last = chunked[chunked.length - 1];
+//     // if chunked is an empty array (last doesn't exist) or the length of last has reached the appropriate size
+//     if (!last || last.length === size) {
+//       // a new array of the element is pushed into the chunked array
+//       chunked.push([element]);
+//     } else {
+//       //or the element will be pushed into the last array
+//       last.push(element);
+//     }
+//   }
+//   return chunked;
+// }
+
+function chunk(array, size) {
+  return array.reduce(
+    (a, v) =>
+      a[a.length - 1].length < size
+        ? [...a.slice(0, a.length - 1), [...a[a.length - 1], v]]
+        : [...a, [v]],
+    [[]]
+  );
 }
 
 // function chunk(array, size) {
